@@ -1,7 +1,11 @@
 import fs from "node:fs";
 import path from "node:path";
 import type { MetadataRoute } from "next";
-import { BASE_URL, LOCATION_SLUGS, SERVICE_SLUGS } from "@/packages/configs/app.config";
+import {
+  BASE_URL,
+  LOCATION_SLUGS,
+  SERVICE_SLUGS,
+} from "@/packages/configs/app.config";
 
 const getBlogSlugs = (): string[] => {
   const blogDir = path.join(process.cwd(), "content", "blog");

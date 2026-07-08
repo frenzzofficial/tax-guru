@@ -15,7 +15,6 @@ export const KEYWORDS = [
   "tax consultant Delhi",
 ];
 
-
 export const SERVICE_SLUGS = [
   "gst-registration",
   "trademark-registration",
