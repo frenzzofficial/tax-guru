@@ -17,7 +17,7 @@ thetaxguru/
 │ │ ├── locations/
 │ │ │ ├── kanpur/page.tsx
 │ │ │ └── delhi/page.tsx
-│ │ ├── blog/
+│ │ ├── blogs/
 │ │ │ ├── page.tsx → Blog listing
 │ │ │ └── [slug]/page.tsx → Blog post
 │ │ ├── sitemap.ts

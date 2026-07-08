@@ -8,7 +8,7 @@ import {
 } from "@/packages/configs/app.config";
 
 const getBlogSlugs = (): string[] => {
-  const blogDir = path.join(process.cwd(), "content", "blog");
+  const blogDir = path.join(process.cwd(), "content", "blogs");
 
   if (!fs.existsSync(blogDir)) return [];
 
@@ -47,7 +47,7 @@ const sitemap = (): MetadataRoute.Sitemap => {
       priority: 0.6,
     },
     {
-      url: `${BASE_URL}/blog`,
+      url: `${BASE_URL}/blogs`,
       lastModified: now,
       changeFrequency: "weekly",
       priority: 0.7,
@@ -69,7 +69,7 @@ const sitemap = (): MetadataRoute.Sitemap => {
   }));
 
   const blogRoutes: MetadataRoute.Sitemap = getBlogSlugs().map((slug) => ({
-    url: `${BASE_URL}/blog/${slug}`,
+    url: `${BASE_URL}/blogs/${slug}`,
     lastModified: now,
     changeFrequency: "monthly",
     priority: 0.6,

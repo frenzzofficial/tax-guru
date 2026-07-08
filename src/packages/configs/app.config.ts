@@ -23,6 +23,7 @@ export const SERVICE_SLUGS = [
   "pf-esi-registration",
   "iec-registration",
   "fssai-registration",
+  "others",
 ] as const;
 
 export const LOCATION_SLUGS = ["kanpur", "delhi"] as const;

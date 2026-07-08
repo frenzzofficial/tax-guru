@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { SERVICE_SLUGS } from "../configs/app.config";
 import {
   emailRules,
   fullnameRules,
@@ -9,16 +10,7 @@ export const leadSchema = z.object({
   fullname: fullnameRules,
   phone: phoneRules,
   email: emailRules,
-  service: z.enum([
-    "gst-registration",
-    "gst-return-filing",
-    "trademark-registration",
-    "itr-filing",
-    "msme-registration",
-    "iec-registration",
-    "fssai-registration",
-    "other",
-  ]),
+  service: z.enum(SERVICE_SLUGS),
   message: z.string().max(500).optional(),
 });
 

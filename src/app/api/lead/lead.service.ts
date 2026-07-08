@@ -6,13 +6,13 @@ const WHATSAPP_API_URL = `https://graph.facebook.com/${envContactConfig.WHATSAPP
 
 const SERVICE_LABELS: Record<LeadInput["service"], string> = {
   "gst-registration": "GST Registration",
-  "gst-return-filing": "GST Return Filing",
   "trademark-registration": "Trademark Registration",
-  "itr-filing": "ITR Filing",
+  "gst-itr-return": "GST ITR Return",
   "msme-registration": "MSME Registration",
+  "pf-esi-registration": "PF ESI Registration",
   "iec-registration": "IEC Registration",
   "fssai-registration": "FSSAI Registration",
-  other: "Other",
+  others: "Others",
 };
 
 const buildMessageText = (lead: LeadInput): string => {

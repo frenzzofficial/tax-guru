@@ -1,5 +1,4 @@
 import { z } from "zod";
-import { allowedMailDomains } from "./domains.config";
 
 //  SHARED MESSAGES
 export const schemaMessages = {
@@ -71,18 +70,6 @@ export const emailRules = z
   .trim()
   .toLowerCase()
   .min(1, schemaMessages.emailRequired)
-  .refine(
-    (email) => {
-      const domain = email.split("@")[1];
-
-      if (!domain) {
-        return false;
-      }
-
-      return allowedMailDomains.includes(domain);
-    },
-    { message: schemaMessages.emailDomain },
-  )
   .describe("Email");
 
 // PASSWORD rules
