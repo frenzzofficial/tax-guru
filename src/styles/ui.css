@@ -1,0 +1,204 @@
+/**
+ * ui.css
+ * Shared primitive classes: .btn, .input, .link
+ *
+ * These read every color, radius, and ring value from the CSS variables
+ * defined in globals.css (:root / .dark). Nothing here defines a new
+ * color — if the brand palette changes, it changes in globals.css only,
+ * and every class below updates automatically.
+ */
+
+/* ============================================================
+   BUTTON
+   ============================================================ */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+  border-radius: var(--radius-md);
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  padding-inline: 1rem;
+  padding-block: 0.5rem;
+  height: 2.5rem;
+  transition:
+    background-color 150ms ease,
+    color 150ms ease,
+    border-color 150ms ease,
+    box-shadow 150ms ease,
+    opacity 150ms ease;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+.btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px color-mix(in oklch, var(--ring) 50%, transparent);
+}
+
+.btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* Sizes */
+.btn-sm {
+  height: 2rem;
+  padding-inline: 0.75rem;
+  font-size: 0.8125rem;
+  border-radius: var(--radius-sm);
+}
+
+.btn-lg {
+  height: 3rem;
+  padding-inline: 1.5rem;
+  font-size: 1rem;
+  border-radius: var(--radius-lg);
+}
+
+/* Variants */
+.btn-primary {
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+}
+
+.btn-primary:hover:not(:disabled) {
+  background-color: color-mix(in oklch, var(--primary) 88%, black);
+}
+
+.btn-secondary {
+  background-color: var(--secondary);
+  color: var(--secondary-foreground);
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background-color: color-mix(in oklch, var(--secondary) 85%, black);
+}
+
+.btn-outline {
+  background-color: transparent;
+  border-color: var(--border);
+  color: var(--foreground);
+}
+
+.btn-outline:hover:not(:disabled) {
+  background-color: var(--accent);
+  color: var(--accent-foreground);
+}
+
+.btn-ghost {
+  background-color: transparent;
+  color: var(--foreground);
+}
+
+.btn-ghost:hover:not(:disabled) {
+  background-color: var(--accent);
+  color: var(--accent-foreground);
+}
+
+.btn-destructive {
+  background-color: var(--destructive);
+  color: var(--primary-foreground);
+}
+
+.btn-destructive:hover:not(:disabled) {
+  background-color: color-mix(in oklch, var(--destructive) 88%, black);
+}
+
+/* ============================================================
+   INPUT
+   ============================================================ */
+
+.input {
+  display: flex;
+  width: 100%;
+  height: 2.5rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--input);
+  background-color: var(--background);
+  color: var(--foreground);
+  padding-inline: 0.75rem;
+  font-size: 0.875rem;
+  transition:
+    border-color 150ms ease,
+    box-shadow 150ms ease;
+}
+
+.input::placeholder {
+  color: var(--muted-foreground);
+}
+
+.input:focus-visible {
+  outline: none;
+  border-color: var(--ring);
+  box-shadow: 0 0 0 3px color-mix(in oklch, var(--ring) 40%, transparent);
+}
+
+.input:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+  background-color: var(--muted);
+}
+
+/* Error state — apply alongside .input, e.g. class="input input-error" */
+.input-error {
+  border-color: var(--destructive);
+}
+
+.input-error:focus-visible {
+  box-shadow: 0 0 0 3px color-mix(in oklch, var(--destructive) 35%, transparent);
+}
+
+.input-helper-text {
+  font-size: 0.75rem;
+  color: var(--muted-foreground);
+  margin-top: 0.25rem;
+}
+
+.input-error-text {
+  font-size: 0.75rem;
+  color: var(--destructive);
+  margin-top: 0.25rem;
+}
+
+/* ============================================================
+   LINK
+   ============================================================ */
+
+.link {
+  color: var(--primary);
+  text-decoration: none;
+  background-image: linear-gradient(var(--primary), var(--primary));
+  background-size: 0% 1.5px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition:
+    background-size 200ms ease,
+    color 150ms ease;
+  padding-bottom: 1px;
+}
+
+.link:hover {
+  background-size: 100% 1.5px;
+}
+
+.link:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px color-mix(in oklch, var(--ring) 40%, transparent);
+  border-radius: var(--radius-sm);
+}
+
+/* Muted variant — for footer links, secondary nav, etc. */
+.link-muted {
+  color: var(--muted-foreground);
+  background-image: linear-gradient(var(--foreground), var(--foreground));
+}
+
+.link-muted:hover {
+  color: var(--foreground);
+}

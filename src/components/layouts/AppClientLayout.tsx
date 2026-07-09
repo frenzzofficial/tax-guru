@@ -1,5 +1,6 @@
 "use client";
 import FontProvider from "../providers/FontProvider";
+import { Toaster } from "../ui/shadcn/sonner";
 import Footer from "./Footer";
 import Header from "./Header";
 
@@ -11,9 +12,9 @@ const AppClientLayout = ({ children }: Readonly<AppClientLayoutProps>) => {
   return (
     <FontProvider>
       <Header />
-      <main className="flex flex-col">{children}</main>
+      <main className="flex flex-col min-h-screen">{children}</main>
       <Footer />
-      {/* <Toaster /> */}
+      <Toaster />
     </FontProvider>
   );
 };

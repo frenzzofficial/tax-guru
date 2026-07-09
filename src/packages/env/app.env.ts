@@ -7,10 +7,11 @@ import { z } from "zod";
 const envSchema = z.object({
   NEXT_PUBLIC_APP_NAME: z.string().min(1).default("TheTaxGuru"),
   NEXT_PUBLIC_APP_VERSION: z.string().default("1.0.0"),
-  NEXT_PUBLIC_APP_HOST: z.string().default("localhost"),
   NEXT_PUBLIC_API_PATH: z.string().default("/app"),
 
-  NODE_ENV: z.enum(["development", "production", "test"]),
+  NODE_ENV: z
+    .enum(["development", "production", "test"])
+    .default("development"),
 
   NEXT_PUBLIC_APP_PORT: z
     .string()
@@ -63,7 +64,6 @@ if (!parsedEnv.success) {
 export const envAppConfig = Object.freeze({
   APP_NAME: parsedEnv.data.NEXT_PUBLIC_APP_NAME,
   APP_VERSION: parsedEnv.data.NEXT_PUBLIC_APP_VERSION,
-  APP_HOST: parsedEnv.data.NEXT_PUBLIC_APP_HOST,
   API_PATH: parsedEnv.data.NEXT_PUBLIC_API_PATH,
   NODE_ENV: parsedEnv.data.NODE_ENV,
   APP_PORT: parsedEnv.data.NEXT_PUBLIC_APP_PORT,
